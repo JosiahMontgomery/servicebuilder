@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geology — Washington State</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000;
+      color: #fff;
+      margin: 0;
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    /* --- HERO & DIRECTORY --- */
+    .geo-hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-top {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      gap: 50px;
+      background: linear-gradient(to bottom, #000, #111);
+    }
+
+    .hero-text-box { flex: 1; }
+    .hero-text-box h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      margin: 0 0 16px 0;
+      line-height: 1.05;
+    }
+    .hero-text-box p {
+      font-family: 'EB Garamond', Georgia, serif;
+      letter-spacing: 4px;
+      color: #777;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .hero-image-box {
+      flex: 1;
+      height: 60%;
+      background: #222;
+      border: 1px solid #333;
+    }
+    .hero-image-box img { width: 100%; height: 100%; object-fit: contain; opacity: 0.8; }
+
+    .hero-directory {
+      height: 35vh;
+      display: flex;
+      gap: 2px;
+      background: #000;
+      padding: 2px;
+    }
+
+    .dir-btn {
+      flex: 1;
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dir-btn img {
+      position: absolute; width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.8); transition: 0.5s;
+    }
+    .dir-btn:hover img { filter: brightness(0.7) scale(1.05); }
+    .dir-btn span {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    /* --- REGION & SUBSECTION LAYOUT --- */
+    .region-header {
+      padding: 100px 5% 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      border-bottom: 1px solid #333;
+      margin-top: 50px;
+      color: #fff;
+    }
+
+    .subsection {
+      height: 66vh;
+      display: flex;
+      padding: 40px 5%;
+      border-bottom: 1px solid #222;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .sub-content { flex: 1; }
+
+    .sub-region-label {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: #7a9e8a;
+      margin-bottom: 12px;
+    }
+
+    .sub-content h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      margin: 0 0 14px 0;
+      line-height: 1.1;
+    }
+
+    .sub-title-rule {
+      width: 36px;
+      height: 1px;
+      background: #b8973a;
+      margin-bottom: 24px;
+    }
+
+    .sub-content p {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      color: #999;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .gallery-link {
+      color: #bbb;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 4px;
+      transition: 0.3s;
+    }
+    .gallery-link:hover { color: #fff; border-bottom-color: #fff; }
+
+    .sub-photos {
+      flex: 1.2;
+      display: flex;
+      gap: 15px;
+      height: 100%;
+    }
+    .sub-photos img { width: 50%; height: 100%; object-fit: cover; background: #111; }
+
+    /* Alternating Photo Layouts */
+    .sub-alt-1 .sub-photos { flex-direction: column; }
+    .sub-alt-1 .sub-photos img { width: 100%; height: 50%; }
+
+    @media (max-width: 1024px) {
+      .subsection { height: auto; flex-direction: column; }
+      .hero-top { flex-direction: column; padding-top: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav id="site-nav">
+  <a href="../index.html" class="nav-brand">
+    <span class="brand-title">Washington State</span>
+    <span class="brand-sub">Research &amp; Photography</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li>
+      <button class="nav-btn nav-research-btn">Research ▾</button>
+      <div class="dropdown-menu">
+        <a href="history.html">History</a>
+        <a href="biology.html">Biology</a>
+        <a href="climatology.html">Climatology</a>
+        <a href="geology.html" class="active">Geology</a>
+      </div>
+    </li>
+    <li><a href="../geography.html">Geography</a></li>
+    <li><a href="../gallery.html">Photo Gallery</a></li>
+    <li><a href="../about.html">About</a></li>
+  </ul>
+ </nav>
+
+  <header class="geo-hero">
+    <div class="hero-top">
+      <div class="hero-text-box">
+        <h1>Geology</h1>
+        <p>Geological Regions of Washington State</p>
+      </div>
+      <div class="hero-image-box">
+        <img src="../images/geographic_image_map.png" alt="Map of Wasshington's Geographic Regions">
+      </div>
+    </div>
+
+    <nav class="hero-directory">
+      <a href="#western" class="dir-btn">
+        <img src="../images/dir-west.jpg" alt="Western">
+        <span>Western Washington</span>
+      </a>
+      <a href="#cascades" class="dir-btn">
+        <img src="../images/dir-cascade.jpg" alt="Cascades">
+        <span>The Cascade Crest</span>
+      </a>
+      <a href="#eastern" class="dir-btn">
+        <img src="../images/dir-east.jpg" alt="Eastern">
+        <span>Eastern Washington</span>
+      </a>
+    </nav>
+  </header>
+
+  <h2 class="region-header" id="western">Western Washington</h2>
+
+  
+
+  <section class="subsection sub-alt-1">
+    <div class="sub-content">
+      <h3>Washington Coast</h3>
+      <div class="sub-title-rule"></div>
+      <p>The Washington coast is a rugged, tectonically active region formed by the Juan de Fuca plate subducting under North America, 
+        creating steep cliffs, sea stacks, and sandy beaches through earthquakes, uplift, and powerful wave erosion. Basalt and marine sedimentary rocks dominate the landscape. 
+        Overall, it makes for beautiful rugged and wild beaches. Like all of far west Washington, it remains quite wild and rural. 
+        Though in the south near Aberdeen down to Long Beach, the coast has tourist towns, everything North of there is either national park or indian reservation, and remains as intact wilderness. 
+        Stunning for its uniqueness: few stretches this large can claim the ruggedness and wildness of this beach.
+      </p>
+      <a href="../gallery/coast.html" class="gallery-link">More photos of this region</a>
+    </div>
+    <div class="sub-photos">
+      <img src="../images/coast1.jpg"><img src="../images/coast2.jpg">
+    </div>
+  </section>
+
+  <section class="subsection">
+    <div class="sub-content">
+      <h3>Olympic Mountains</h3>
+      <div class="sub-title-rule"></div>
+      <p>The Olympic Mountains are mainly made of tough sandstone, shale, and basalt. 
+        The region is theorized to likely have formed in the ocean from a hot spot, which crashed against washington state forming the region. 
+        Because of all of this, the Olympic Mountains are essentially a big messy jumble of rocks formed into a chaotic pile of mountains. 
+        The area is one of the most remote in the US; the Olympics are a somewhat unknown but very wild range of pure wilderness.
+      </p>
+      <a href="../gallery/olympics.html" class="gallery-link">More photos of this region</a>
+    </div>
+    <div class="sub-photos">
+      <img src="../images/olympics1.jpg"><img src="../images/olympics2.jpg">
+    </div>
+  </section>
+
+  <section class="subsection">
+    <div class="sub-content">
+      <h3>Willapa Hills</h3>
+      <div class="sub-title-rule"></div>
+      <p>The story of the Willapa Hills is the same of that of the Olympics, but here it is formed as rolling hills reminiscent of appalachia in appearance, 
+        though incredible different in geology. 
+        The whole region is large but quite unknown, featuring some actually quite prominent mountains such as those in the Black Hills. 
+        Generally, a remote and rural area filled with heavy logging. Strong history of fire lookouts. 
+        Few towns are people in general for an area of over 2 million acres.
+      </p>
+      <a href="../gallery/willapa.html" class="gallery-link">More photos of this region</a>
+    </div>
+    <div class="sub-photos">
+      <img src="../images/will1.jpg"><img src="../images/will2.jpg">
+    </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+    <div class="sub-content">
+      <h3>The Puget</h3>
+      <div class="sub-title-rule"></div>
+      <p>The Puget sound region consists of a general long north-south lowland area filled with unique glacially formed hills. 
+        The entire area is a freshwater wonderland, with many many rivers and a fair few lakes as well. Treed and pleasant grassy flatlands and long hills fill the area.
+      </p>
+      <a href="../gallery/puget.html" class="gallery-link">More photos of this region</a>
+    </div>
+    <div class="sub-photos">
+      <img src="../images/pug1.jpg"><img src="../images/pug2.jpg">
+    </div>
+  </section>
+
+  <h2 class="region-header" id="cascades">The Cascade Crest</h2>
+
+ <section class="subsection">
+    <div class="sub-content">
+        <h3>North Cascades</h3>
+        <div class="sub-title-rule"></div>
+        <p>The North Cascades is all of the Cascades north of Rockport in the West, Cascade Pass / Stehekin in the Center, and Mazama in the East.
+          The areas west of the Crest are entirely giant, steep, gnarly peaks, as well as the Mount Baker Volcano. The area near the Crest shows the clear fade from the wetter, steeper peaks
+          to the areas East of the Crest, primarily taken up by the Pasayten, a massive high elevation wilderness marked by Alpine Tundra flatlands at over 6000 ft, with gentler 8,000+ ft peaks sticking out.
+          The North Cascades is quite literally the most remote and rugged area in North America south of Alaska, and contains the largest mountains in North America outside of some of Alaskas peaks as well.
+        </p>
+        <a href="../gallery/north-cascades.html" class="gallery-link">More photos of this region</a>
+    </div>
+    <div class="sub-photos">
+        <img src="../images/no1.jpg">
+        <img src="../images/no2.jpg">
+    </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+      <div class="sub-content">
+          <h3>Central Cascades</h3>
+          <div class="sub-title-rule"></div>
+          <p>The Central Cascades is the region south of the North Cascades, but north of Highway 2/Stevens Pass. This area is marked by many rarely traveled regions, large lakes such as Wenatchee and Chelan,
+            and the Volcano Complex of Glacier Peak. The eastern Central Cascades have the Sawtooth Range, an extremely remote and empty area. 
+          </p>
+         <a href="../gallery/central-cascades.html" class="gallery-link">More photos of this region</a>
+     </div>
+     <div class="sub-photos">
+         <img src="../images/cen.jpg">
+         <img src="../images/cen2.jpg">
+     </div>
+  </section>
+
+  <section class="subsection">
+      <div class="sub-content">
+         <h3>Alpine Lakes / Wenatchee Cascades</h3>
+          <div class="sub-title-rule"></div>
+          <p>These are all of the Cascade south of Hwy 2 / Stevens Pass but north of I-90 / Snoqualmie Pass. Here lies the famous Alpine Lakes Wilderness, which boasts over 700 alpine lakes and ponds,
+            as well as narrowly carved towering rock spires. In the Eastern section is the Stuart Range, containing Mount Stuart, the largest exposed piece of granite in the world.
+          </p>
+          <a href="../gallery/alpine-lakes.html" class="gallery-link">More photos of this region</a>
+      </div>
+      <div class="sub-photos">
+          <img src="../images/alp1.jpg">
+          <img src="../images/alp2.jpg">
+      </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+      <div class="sub-content">
+          <h3>Rainier Cascades</h3>
+         <div class="sub-title-rule"></div>
+         <p>The Rainier Cascades contain more diversity in themselves than the entirety of the north american continent east of the mississippi. 
+          The west side, wetter and less extreme in temperatures, is dominated by one of the biggest mountains in the world: 
+          Mount Rainier, so massive she creates her own weather quite literally. South of Mount Rainier can be found incredible thick forests, with very tall trees, 
+          but just travel east over the crest and you have bumping lake and a variety of true high alpine mountains in a region 
+          that doesnt see extremely heavy foot traffic anywhere near how Rainier does.
+         </p>
+         <a href="../gallery/rainier.html" class="gallery-link">More photos of this region</a>
+      </div>
+      <div class="sub-photos">
+          <img src="../images/rain1.jpg">
+         <img src="../images/rain2.jpg">
+     </div>
+  </section>
+
+  <section class="subsection">
+      <div class="sub-content">
+          <h3>South Cascades</h3>
+         <div class="sub-title-rule"></div>
+         <p>The South Cascades of Washington are generally filled with lower mountains,
+           rarely stretching up into the truly alpine. 
+           Because of this there area has grand massive forests, stretching for miles from some views.
+            Rising out of these lower areas are some of the biggest mountains in the world: giant volcanoes Adams and St. Helens. 
+            St. Helens could be a whole geological and biological region of its own (or maybe 5 regions) but thats another story too complex for here. 
+            But between the two volcanoes the east-west difference is evident. Near Helens is greener, thicker forests, 
+            whereas east of Adams we get the thinning forests, balding hills despite being sub-sub alpine, and sparser underbrush.
+         </p>
+           <a href="../gallery/south-cascades.html" class="gallery-link">More photos of this region</a>
+     </div>
+     <div class="sub-photos">
+         <img src="../images/so1.jpg">
+          <img src="../images/so2.jpg">
+     </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+      <div class="sub-content">
+          <h3>Columbia River Region</h3>
+         <div class="sub-title-rule"></div>
+         <p>The Columbia River—by far the Mightiest of all Rivers in the PNW—is a gorge for the majority of its stretch in Washington state. 
+          However, along the border with Oregon is the region specifically known as the “Columbia River Gorge,” and this area is a hidden gem that in any eastern state would be 100% a national park. 
+          The tall cliffs of the massive river (largest river to flow into the Pacific from the Americas) create a huge gorge, diverse from east to west. 
+          Between tric-cities and portland—-and really just in the 50 mile stretch between The Dalles and the Cascade Locks—the environment undergoes immense change, as shown in these photos. 
+          In the east, it is like a scene out of a Western, with large vertical cliffs (likely basalt) leading up to plateaus of shrubs, steppe, and sometimes true desert, like the Samarian coast of crete. O
+          nly a short distance to the west and it becomes a lush green scene, with massive waterfalls and large more sloping mountain faces, with the appearance of the slovenian alps. 
+          Overall the region is very Meditteranean in appearance and to a certain extent in geology (though not at all biologically).
+        </p>
+         <a href="../gallery/columbia-river.html" class="gallery-link">More photos of this region</a>
+     </div>
+     <div class="sub-photos">
+         <img src="../images/co1.jpg">
+         <img src="../images/co2.jpg">
+     </div>
+  </section>
+
+  <h2 class="region-header" id="eastern">Eastern Washington</h2>
+
+  <section class="subsection">
+      <div class="sub-content">
+         <h3>The Northeast</h3>
+         <div class="sub-title-rule"></div>
+         <p>Northeast Washington is part of the Intermountain West, hence it contains some smaller mountain ranges, as well as the large Okanogan Highlands area. The large rivers, lakes, and boreal forests
+          make for a largely unknown but beautiful section of the state far off in the corner.
+         </p>
+         <a href="../gallery/northeast.html" class="gallery-link">More photos of this region</a>
+     </div>
+     <div class="sub-photos">
+          <img src="../images/nor1.jpg">
+          <img src="../images/nor2.jpg">
+      </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+     <div class="sub-content">
+         <h3>Waterville / Grand Coulee</h3>
+          <div class="sub-title-rule"></div>
+         <p>The Waterville Plateau is a large flat highland area at around 3000 feet, but contains many Coulees (a unique geological formation unique to Washington state). The largest is the Grand Coulee,
+          a giant gash over 1000 feet deep, 5 miles wide at the widest point, and over 50 miles long. The area was sadly filled by water by FDR, one of the worst presidents of all time, so now it is a very useful
+          reservoir providing water for Eastern Washington farmland. However, we lost a natural feature better than any national park outside of the West. However, the numerous other coulees in this area are not filled with
+          water, such as Moses Coulee.
+         </p>
+          <a href="../gallery/grand-coulee.html" class="gallery-link">More photos of this region</a>
+      </div>
+     <div class="sub-photos">
+          <img src="../images/grand1.jpg">
+          <img src="../images/grand2.jpg">
+     </div>
+  </section>
+
+  <section class="subsection">
+      <div class="sub-content">
+         <h3>Columbia Plateau</h3>
+         <div class="sub-title-rule"></div>
+         <p>The Columbia Plateau is one of the largest regions in Washington State, containing giant flatlands of farmland, huge cliffs, deserts, the famous and horrific Channeled Scablands, 
+          and numerous desert rock formations. The area covers millions upon millions of square acres.
+         </p>
+         <a href="../gallery/columbia-plateau.html" class="gallery-link">More photos of this region</a>
+      </div>
+      <div class="sub-photos">
+          <img src="../images/cop1.jpg">
+          <img src="../images/cop2.jpg">
+      </div>
+  </section>
+
+  <section class="subsection sub-alt-1">
+      <div class="sub-content">
+          <h3>Palouse</h3>
+         <div class="sub-title-rule"></div>
+         <p>The Palouse is a unique region of rolling grassland hills on the eastern edge of the Columbia Plateau. Famouse for its picturesque beauty.</p>
+          <a href="../gallery/palouse.html" class="gallery-link">More photos of this region</a>
+     </div>
+      <div class="sub-photos">
+         <img src="../images/pal1.jpg">
+         <img src="../images/pal2.jpg">
+     </div>
+  </section>
+
+  <section class="subsection">
+      <div class="sub-content">
+         <h3>Blue Mountains</h3>
+         <div class="sub-title-rule"></div>
+         <p>The Blue Mountains are a mysterious and remote region in the southeast corner of Washington, a true mountain range containing much interesting geology, canyons, rivers, and sub-alpine summits</p>
+          <a href="../gallery/blue-mtns.html" class="gallery-link">More photos of this region</a>
+      </div>
+     <div class="sub-photos">
+         <img src="../images/blue1.jpg">
+         <img src="../images/blue2.jpg">
+     </div>
+  </section>
+  <script src="../js/main.js"></script>
+</body>
+</html>

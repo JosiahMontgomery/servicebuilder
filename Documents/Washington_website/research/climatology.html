@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climatology — Washington State</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* Lock viewport to prevent all scrolling */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden; 
+      background: #000;
+      color: #fff;
+    }
+
+    /* Main container sized to fill space below Nav */
+    .climate-wrapper {
+      height: calc(100vh - 80px); /* Adjust based on your actual nav height */
+      display: flex;
+      flex-direction: column;
+      padding: 0 60px;
+      box-sizing: border-box;
+    }
+
+    /* Top Title Section */
+    .climate-header {
+      padding: 20px 0;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .climate-header h1 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin: 0;
+      font-weight: 300;
+      color: #888;
+    }
+
+    /* Main Content Split */
+    .climate-content {
+      display: flex;
+      gap: 60px;
+      flex-grow: 1;
+      align-items: center; /* Vertically centers the text and images against each other */
+      min-height: 0;
+    }
+
+    /* LEFT SIDE: Text Section (Takes up 1/3) */
+    .climate-text-container {
+      flex: 1; 
+    }
+
+    .climate-text-inner h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .climate-text-inner p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 20px;
+    }
+
+    /* RIGHT SIDE: Two Smaller Side-by-Side Photos (Takes up 2/3) */
+    .climate-images {
+      flex: 2; 
+      display: flex;
+      flex-direction: row; 
+      gap: 25px; 
+      justify-content: flex-end; /* Pushes images to the far right */
+    }
+
+    .climate-img-box {
+      flex: 1;
+      /* Adjust this height percentage to make the images smaller or larger */
+      max-height: 55vh; 
+      border: 1px solid #222;
+      background-color: #0a0a0a;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .climate-img-box img {
+      width: 100%;
+      height: 100%;
+      /* 'contain' ensures the full map is visible without being cut off */
+      object-fit: contain; 
+      display: block;
+      filter: brightness(0.9);
+    }
+
+    /* Responsive handling for tablets/phones */
+    @media (max-width: 1100px) {
+      body { overflow-y: auto; height: auto; }
+      .climate-wrapper { height: auto; padding: 20px; }
+      .climate-content { flex-direction: column; align-items: flex-start; }
+      .climate-images { width: 100%; flex-direction: column; }
+      .climate-img-box { max-height: 400px; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav id="site-nav">
+  <a href="../index.html" class="nav-brand">
+    <span class="brand-title">Washington State</span>
+    <span class="brand-sub">Research &amp; Photography</span>
+  </a>
+  
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li>
+      <button class="nav-btn nav-research-btn">Research ▾</button>
+      <div class="dropdown-menu">
+        <a href="history.html">History</a>
+        <a href="biology.html">Biology</a>
+        <a href="climatology.html" class="active">Climatology</a>
+        <a href="geology.html">Geology</a>
+      </div>
+    </li>
+    <li><a href="../geography.html">Geography</a></li>
+    <li><a href="../gallery.html">Photo Gallery</a></li>
+    <li><a href="../about.html">About</a></li>
+  </ul>
+ </nav>
+
+  <main class="climate-wrapper">
+    <header class="climate-header">
+      <h1>Climatology</h1>
+    </header>
+
+    <div class="climate-content">
+      <div class="climate-text-container">
+        <div class="climate-text-inner">
+          <h2>Climate Zones of Washington</h2>
+          <p>
+            The biome refers only to the plants and animals of the region, essentially the actual biology of this. However climate takes into account the general climate in terms of temperature and precipitation, primarily. Washington contains around 14-15 of the 30 total climate zones (note: climate regions, like biomes, can be broken down even further. If done, the number of climates in WA would be higher as well as the total number)
+          </p>
+          <p>
+            These two maps display these zones and where they are located.
+          </p>
+        </div>
+      </div>
+
+      <div class="climate-images">
+        <div class="climate-img-box">
+          <img src="../images/koppen_climate.png" alt="Koppen Climate Map">
+        </div>
+        <div class="climate-img-box">
+          <img src="../images/my_climate_map.png" alt="Topography Map">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

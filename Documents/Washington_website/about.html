@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Washington State Research</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Absolute lock on scrolling */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden; 
+      background: #000;
+    }
+
+    /* Main container sized to viewport minus nav */
+    .section {
+      height: calc(100vh - 70px); /* 70px approx nav height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5%;
+      box-sizing: border-box;
+    }
+
+    .section-inner {
+      width: 100%;
+      max-width: 1600px;
+    }
+
+    .intro-split {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .intro-text {
+      flex: 1;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .intro-text h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .intro-text p {
+      /* Fluid font size to help fit various screen heights */
+      font-size: clamp(0.85rem, 0.9vw, 1rem); 
+      line-height: 1.5;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .intro-image-wrap {
+      flex: 0.8;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .intro-image-wrap img {
+      max-width: 100%;
+      max-height: 75vh; /* Constraints image height to prevent scroll */
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Fallback for very small screens or mobile */
+    @media (max-width: 1024px) or (max-height: 600px) {
+      body { overflow-y: auto; height: auto; }
+      .section { height: auto; padding: 100px 20px 40px; }
+      .intro-split { flex-direction: column; }
+      .intro-image-wrap { order: -1; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav id="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="brand-title">Washington State</span>
+    <span class="brand-sub">About this Site</span>
+  </a>
+  
+  <ul class="nav-links">
+    <li><a href="index.html" data-key="nav-home">Home</a></li>
+    <li>
+      <button class="nav-btn nav-research-btn" data-key="nav-research">Research ▾</button>
+      <div class="dropdown-menu">
+        <a href="research/history.html">History</a>
+        <a href="research/biology.html">Biology</a>
+        <a href="research/climatology.html">Climatology</a>
+        <a href="research/geology.html">Geology</a>
+      </div>
+    </li>
+    <li><a href="geography.html" data-key="nav-geography">Geography</a></li>
+    <li><a href="gallery.html" data-key="nav-gallery">Photo Gallery</a></li>
+    <li><a href="about.html" class="active" data-key="nav-about">About</a></li>
+  </ul>
+ </nav>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="intro-split">
+        <div class="intro-text">
+          <h2 data-key="about-heading">My Research & Photography</h2>
+          <p>
+            This project is a dedicated to a simple but commonly unknown fact: the region of the world known as Cascadia or the Pacific Northwest is, in terms of history, culture, and primarily natural beauty,
+            the greatest place on earth, trumped by nothing. With current political land divisions, this region takes up all of Washington state, along with much of Oregon, Idaho, Northern California, and much of British Columbia.
+            However, Washington, with the combination of the High Cascades, the impenetrable Olympic mountains, the Salish Sea and Puget Lowlands, the Cascade Volcanoes, and the Columbia River and Plateau, remains the center
+            and source of the whole region. 
+          </p>
+          <p>
+            However, not only does much of the nation and world at large know little or even nothing about this area, even those who are lucky enough to reside in the state have little knowledge. A simple biannual trip to
+            one of the major mountain passes does not reveal the full extent of the state; not even close. The occasional journey to Paradise or Sunrise on Mount Rainier shows nothing of the state at large.
+            Visiting the Hoh Rainforest does not even touch on how truly diverse and unique this state is. We who live or have lived here generally take for granted what is actually unfathomably unique.
+          </p>
+          <p>
+            But to explain this to those who have not experienced it for themselves is a difficult task. You can not put into words the wonders of this region. Hence, only through photography and detailed explanation can one
+            show a friend or learn for themselves the depth of the state. This site is meant to be the next best thing to visiting the region yourself. It is one thing to explain in words that in Washington you can drive through
+            from beach to rainforest to fjord to high mountain passes to desert and to prairie in the span of one days journey, and another thing entirely to show it in pictures.
+          </p>
+          <p>
+            Therefore, let this site be the evident proof of what I have been insisting for years: Washington state is not only the greatest state in the Union, but this state and the region is the singular greatest place on our earth.
+          </p>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="images/about_photo.jpg" alt="About photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

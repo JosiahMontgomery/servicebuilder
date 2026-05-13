@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery — Washington State</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Prevent any scrolling on the gallery page */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden; /* This kills the scrollbar */
+      background: #000;
+    }
+
+    /* Compact Gallery Header */
+    .gallery-header {
+      padding-top: 100px; /* Space for fixed nav */
+      padding-bottom: 20px;
+      text-align: center;
+      background: #000;
+      height: 160px; /* Fixed height for header */
+      box-sizing: border-box;
+    }
+    .gallery-header h1 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin: 0;
+      color: #fff;
+    }
+    .gallery-header p {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    /* Gallery Grid Layout */
+    .gallery-master-container {
+      width: 100%;
+      /* Grid height = Total Screen - Header Height */
+      height: calc(100vh - 160px); 
+      background: #000;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); 
+      grid-template-rows: repeat(3, 1fr);    
+      width: 100%;
+      height: 100%;
+      gap: 0; 
+    }
+
+    .gallery-block {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      overflow: hidden;
+      border: 0.5px solid rgba(255,255,255,0.05);
+    }
+
+    .gallery-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      display: block;
+    }
+
+    .block-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.4s ease;
+      z-index: 2;
+    }
+
+    .block-overlay span {
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 5px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .gallery-block:hover img { transform: scale(1.1); }
+    .gallery-block:hover .block-overlay { background: rgba(0, 0, 0, 0.1); }
+
+    /* For screens that are too short, allow scrolling so images don't squash */
+    @media (max-height: 600px) {
+        body { overflow: auto; }
+        .gallery-grid { height: 800px; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav id="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="brand-title">Washington State</span>
+    <span class="brand-sub">Research &amp; Photography</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li>
+      <button class="nav-btn nav-research-btn">Research ▾</button>
+      <div class="dropdown-menu">
+        <a href="research/history.html">History</a>
+        <a href="research/biology.html">Biology</a>
+        <a href="research/climatology.html">Climatology</a>
+        <a href="research/geology.html">Geology</a>
+      </div>
+    </li>
+    <li><a href="geography.html">Geography</a></li>
+    <li><a href="gallery.html" class="active">Photo Gallery</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+ </nav>
+
+  <header class="gallery-header">
+      <h1>Photo Gallery</h1>
+      <p>Visual regions of the Pacific Northwest</p>
+  </header>
+
+  <section class="gallery-master-container">
+    <div class="gallery-grid">
+      <a href="gallery/olympics.html" class="gallery-block">
+        <img src="images/gallery-1.jpg" alt="Olympic Mountains">
+        <div class="block-overlay"><span>Olympic Mountains</span></div>
+      </a>
+      <a href="gallery/coast.html" class="gallery-block">
+        <img src="images/gallery-2.jpg" alt="Washington Coast">
+        <div class="block-overlay"><span>Washington Coast</span></div>
+      </a>
+      <a href="gallery/willapa.html" class="gallery-block">
+        <img src="images/gallery-3.jpg" alt="Willapa Hills">
+        <div class="block-overlay"><span>Willapa Hills</span></div>
+      </a>
+      <a href="gallery/puget.html" class="gallery-block">
+        <img src="images/gallery-4.jpg" alt="The Puget">
+        <div class="block-overlay"><span>The Puget</span></div>
+      </a>
+      <a href="gallery/north-cascades.html" class="gallery-block">
+        <img src="images/gallery-5.jpg" alt="North Cascades">
+        <div class="block-overlay"><span>North Cascades</span></div>
+      </a>
+      <a href="gallery/central-cascades.html" class="gallery-block">
+        <img src="images/gallery-6.jpg" alt="Central Cascades">
+        <div class="block-overlay"><span>Central Cascades</span></div>
+      </a>
+      <a href="gallery/alpine-lakes.html" class="gallery-block">
+        <img src="images/gallery-7.jpg" alt="Alpine Lakes Cascades">
+        <div class="block-overlay"><span>Alpine Lakes Cascades</span></div>
+      </a>
+      <a href="gallery/rainier.html" class="gallery-block">
+        <img src="images/gallery-8.jpg" alt="Rainier Cascades">
+        <div class="block-overlay"><span>Rainier Cascades</span></div>
+      </a>
+      <a href="gallery/south-cascades.html" class="gallery-block">
+        <img src="images/gallery-9.jpg" alt="South Cascades">
+        <div class="block-overlay"><span>South Cascades</span></div>
+      </a>
+      <a href="gallery/columbia-river.html" class="gallery-block">
+        <img src="images/gallery-10.jpg" alt="Columbia River Region">
+        <div class="block-overlay"><span>Columbia River Region</span></div>
+      </a>
+      <a href="gallery/northeast.html" class="gallery-block">
+        <img src="images/gallery-11.jpg" alt="The Northeast">
+        <div class="block-overlay"><span>The Northeast</span></div>
+      </a>
+      <a href="gallery/grand-coulee.html" class="gallery-block">
+        <img src="images/gallery-12.jpg" alt="Waterville / Grand Coulee">
+        <div class="block-overlay"><span>Waterville / Grand Coulee</span></div>
+      </a>
+      <a href="gallery/columbia-plateau.html" class="gallery-block">
+        <img src="images/gallery-13.jpg" alt="Columbia Plateau">
+        <div class="block-overlay"><span>Columbia Plateau</span></div>
+      </a>
+      <a href="gallery/palouse.html" class="gallery-block">
+        <img src="images/gallery-14.jpg" alt="Palouse">
+        <div class="block-overlay"><span>Palouse</span></div>
+      </a>
+      <a href="gallery/blue-mtns.html" class="gallery-block">
+        <img src="images/gallery-15.jpg" alt="Blue Mtns">
+        <div class="block-overlay"><span>Blue Mtns</span></div>
+      </a>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
